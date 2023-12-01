@@ -48,6 +48,6 @@ npm run test:unit
 ### What I have done here
 I used tailwind css to make easier and simple my css
 I used vue router to make browser router (page mount)
-I used vuex to manage global state
+I used vuex to manage global state(get data from store and emit action to allow only one badge available)
 I used typescript to be strict in workflow
     

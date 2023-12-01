@@ -7,11 +7,11 @@ const store = useStore();
 const props = defineProps({
   key: Number,
   id: Number,
-  amount: String,
+  amount: Number,
   type: String,
   action: String,
-  active: String,
-  linked: String,
+  active: Boolean,
+  linked: Boolean,
   selectedColor: String
 })
 
@@ -213,10 +213,45 @@ onMounted(() => {
     height: 24px;
     font-size: 14px;
 }
-.check {
-    width: 20px;
-    height: 20px;
+
+.check{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  appearance:none;
+  border: 2px solid black;
+  border-radius: 20%;
+  position:relative;
 }
+.check:checked{
+  background-color:  #3B755F;
+  border-color: #3B755F;
+}
+.check:checked:after {
+  content: '\2713';
+  color:white;
+}
+.check:checked:hover {
+  opacity: 1 !important;
+}
+.check:not(:checked):hover:after {
+  background-color: #D4DFDB;
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  right: -9px;
+  bottom: -9px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+.check:hover{
+  border-color: #b8b894;
+}
+
 
 .item-color {
     width: 221px;
@@ -228,6 +263,18 @@ onMounted(() => {
     width: 16px;
     height: 16px;
     margin-right: 2px;
+}
+
+.item-color button:hover {
+  opacity: 0.8;
+}
+.item-color button:hover{
+  border: 0px;
+}
+.item-color button:focus{
+  transform: scale(0.95) !important;
+  opacity: 0.95;
+  border: 2px solid rgb(136, 134, 129);
 }
 
 .item-badge {
